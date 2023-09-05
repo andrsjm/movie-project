@@ -167,6 +167,14 @@
 						"url": "localhost:9090/user/movie/voted"
 					},
 					"response": []
+				},
+				{
+					"name": "Most Voted",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
 				}
 			]
 		},
