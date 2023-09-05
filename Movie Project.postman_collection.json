@@ -1,0 +1,279 @@
+{
+	"info": {
+		"_postman_id": "ef1fd3ce-eaa6-40f8-b6b9-e61587c361cd",
+		"name": "Movie Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "14454353"
+	},
+	"item": [
+		{
+			"name": "Movie",
+			"item": [
+				{
+					"name": "Insert",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"title\":\"Superman\",\r\n    \"description\":\"Superman\",\r\n    \"duration\":50,\r\n    \"watch_url\":\"www.co.id\",\r\n    \"artists\":[2],\r\n    \"genres\":[2]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9090/movie"
+					},
+					"response": []
+				},
+				{
+					"name": "Most Viewed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9090/movie/most-viewed"
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/movie?offset=0&limit=2",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"movie"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0"
+								},
+								{
+									"key": "limit",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Search",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:9090/movie/search",
+							"host": [
+								"localhost"
+							],
+							"port": "9090",
+							"path": [
+								"movie",
+								"search"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "bjir",
+									"disabled": true
+								},
+								{
+									"key": "description",
+									"value": "bjir",
+									"disabled": true
+								},
+								{
+									"key": "artist",
+									"value": "lucky",
+									"disabled": true
+								},
+								{
+									"key": "genre",
+									"value": "action",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\":1,\r\n    \"title\":\"digidaw aweu\",\r\n    \"description\":\"filmnya sangat seru untuk bocil\",\r\n    \"duration\":100,\r\n    \"watch_url\":\"www.musik.co.id\",\r\n    \"views\":1000\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9090/movie"
+					},
+					"response": []
+				},
+				{
+					"name": "Watch Movie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9090/watch/5"
+					},
+					"response": []
+				},
+				{
+					"name": "Track Movie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9090/movie/track/5"
+					},
+					"response": []
+				},
+				{
+					"name": "Vote",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "localhost:9090/movie/vote/5"
+					},
+					"response": []
+				},
+				{
+					"name": "Unvote",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "localhost:9090/movie/unvote/5"
+					},
+					"response": []
+				},
+				{
+					"name": "Get Voted Movie",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9090/user/movie/voted"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Artist",
+			"item": [
+				{
+					"name": "Insert",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Julian Ely\",\r\n    \"dob\":\"2020-11-11\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9090/artist"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Genre",
+			"item": [
+				{
+					"name": "Insert",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"genre\":\"Action\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9090/genre"
+					},
+					"response": []
+				},
+				{
+					"name": "Most Viewed",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": "localhost:9090/genre/most-viewed"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"tungtung\",\r\n    \"email\":\"wikwik@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9090/user/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"wikwik@gmail.com\",\r\n    \"password\":\"12345\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:9090/user/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "localhost:9090/user/logout"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
