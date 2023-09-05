@@ -615,3 +615,37 @@ func GetVotedMovie(c *gin.Context) {
 	}
 	c.Header("Content-Type", "application/json")
 }
+
+func MostVotedMovie(c *gin.Context) {
+	db := util.Connect()
+	defer db.Close()
+
+	session := sessions.Default(c)
+	userID := session.Get("userID")
+
+	if userID == nil {
+		util.UnauthorizedError(c)
+		return
+	}
+
+	var mostVotedMovie model.MostVoteMovie
+
+	err := db.QueryRow(`SELECT m.title AS movie_title, COUNT(vm.movie_id) AS vote_count
+			FROM movies m
+			LEFT JOIN voted_movie vm ON m.id = vm.movie_id
+			GROUP BY m.title
+			ORDER BY vote_count DESC
+			LIMIT 1`).Scan(&mostVotedMovie.Title, &mostVotedMovie.VoteCount)
+
+	var response model.Response
+	if err != nil {
+		util.ReturnError(c, err)
+		return
+	} else {
+		response.Status = 200
+		response.Message = "Success Get Most Voted Movie"
+		response.Data = mostVotedMovie
+		c.JSON(http.StatusOK, response)
+	}
+	c.Header("Content-Type", "application/json")
+}

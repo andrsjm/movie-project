@@ -32,6 +32,7 @@ func main() {
 	router.GET("/watch/:id", controller.WatchMovie)
 	router.GET("/movie/track/:id", controller.TrackMovie)
 	router.GET("/user/movie/voted", controller.GetVotedMovie)
+	router.GET("/movie/mostvote", controller.MostVotedMovie)
 
 	router.PUT("/movie", controller.UpdateMovie)
 

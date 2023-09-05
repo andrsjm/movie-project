@@ -36,3 +36,8 @@ type TrackMovie struct {
 	Title string `form:"title" json:"title"`
 	Views int    `form:"views" json:"views"`
 }
+
+type MostVoteMovie struct {
+	Title     string `form:"title" json:"title"`
+	VoteCount int    `form:"vote_count" json:"vote_count"`
+}
